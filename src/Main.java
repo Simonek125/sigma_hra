@@ -1,5 +1,8 @@
+import game.Game;
+
 public class Main {
     public static void main(String[] args) {
-        //TODO udelat hru
+        Game game = new Game();
+        game.play();
     }
 }
