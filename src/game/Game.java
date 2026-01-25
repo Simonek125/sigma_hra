@@ -10,7 +10,11 @@ public class Game {
     private Parser parser;
 
     public Game() {
-
+        world = new World();
+        world.initWorld();
+        player = new Player("Barnabas", world.getRoom("jeskyne"));
+        parser = new Parser();
+        isRunning = true;
     }
 
     public void play() {
