@@ -1,0 +1,76 @@
+{
+    "locations": [
+        {
+            "id": "jeskyne",
+            "name": "Jeskyně",
+            "description": "Domov Barnabáše. Zde hra začíná i končí.",
+            "neighbors": [
+                "rozcesti"
+            ]
+        },
+        {
+            "id": "rozcesti",
+            "name": "Rozcestí",
+            "description": "Křižovatka.",
+            "neighbors": [
+                "jeskyne",
+                "doubravka",
+                "housti",
+                "bystrina"
+            ]
+        },
+        {
+            "id": "doubravka",
+            "name": "Doubravka",
+            "description": "Hustý les, výskyt Veverky.",
+            "neighbors": [
+                "rozcesti",
+                "louka"
+            ]
+        },
+        {
+            "id": "louka",
+            "name": "Včelí louka",
+            "description": "Zdroj medu, nebezpečí pobodání.",
+            "neighbors": [
+                "doubravka"
+            ]
+        },
+        {
+            "id": "housti",
+            "name": "Temné Houští",
+            "description": "Nepřehledné místo, ukrývá těžké předměty.",
+            "neighbors": [
+                "rozcesti",
+                "srub",
+                "bystrina"
+            ]
+        },
+        {
+            "id": "srub",
+            "name": "Opuštěný srub",
+            "description": "Lidská stavba s užitečnými předměty.",
+            "neighbors": [
+                "housti"
+            ]
+        },
+        {
+            "id": "bystrina",
+            "name": "Bystřina",
+            "description": "Zdroj vody a ryb.",
+            "neighbors": [
+                "rozcesti",
+                "housti",
+                "vyhlidka"
+            ]
+        },
+        {
+            "id": "vyhlidka",
+            "name": "Vyhlídka",
+            "description": "Roste zde léčivá bylina.",
+            "neighbors": [
+                "bystrina"
+            ]
+        }
+    ]
+}
