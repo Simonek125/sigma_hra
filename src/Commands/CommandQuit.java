@@ -5,7 +5,8 @@ import game.Game;
 public class CommandQuit implements Command {
     @Override
     public String execute(String[] args, Game game) {
-        return null;
+        game.stop();
+        return "Ukoncuji hru...";
     }
 
     @Override
