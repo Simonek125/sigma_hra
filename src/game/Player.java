@@ -8,11 +8,13 @@ public class Player {
     private boolean isHibernating;
 
     public Player(String name, Room startRoom) {
-
+        this.name = name;
+        this.currentRoom = startRoom;
+        this.backpack = new Inventory(10); // Default size
     }
 
     public void move(Room nextRoom) {
-
+        currentRoom = nextRoom;
     }
 
     public boolean takeItem(Item item) {
@@ -28,7 +30,7 @@ public class Player {
     }
 
     public Room getCurrentRoom() {
-        return null;
+        return currentRoom;
     }
 
     public Inventory getInventory() {
