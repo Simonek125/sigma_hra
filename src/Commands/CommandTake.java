@@ -5,7 +5,18 @@ import game.Game;
 public class CommandTake implements Command {
     @Override
     public String execute(String[] args, Game game) {
-        return null;
+        if (args.length == 0) {
+            return "Co mam vzit?";
+        }
+
+        String itemName = args[0];
+        boolean success = game.getPlayer().takeItem(itemName);
+
+        if (success) {
+            return "Vzal jsi " + itemName;
+        } else {
+            return "To tu neni nebo to nemuzes vzit.";
+        }
     }
 
     @Override

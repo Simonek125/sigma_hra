@@ -17,11 +17,29 @@ public class Player {
         currentRoom = nextRoom;
     }
 
-    public boolean takeItem(Item item) {
+    public boolean takeItem(String itemName) {
+        Item item = currentRoom.removeItem(itemName);
+        if (item != null) {
+            if (item.isHeavy()) {
+                currentRoom.addItem(item); // Vratit zpet
+                return false; // Prilis tezke
+            }
+            if (backpack.add(item)) {
+                return true;
+            } else {
+                currentRoom.addItem(item); // Batoh je plny
+                return false;
+            }
+        }
         return false;
     }
 
     public boolean dropItem(String itemName) {
+        Item item = backpack.remove(itemName);
+        if (item != null) {
+            currentRoom.addItem(item);
+            return true;
+        }
         return false;
     }
 

@@ -5,7 +5,18 @@ import game.Game;
 public class CommandDrop implements Command {
     @Override
     public String execute(String[] args, Game game) {
-        return null;
+        if (args.length == 0) {
+            return "Co mam polozit?";
+        }
+
+        String itemName = args[0];
+        boolean success = game.getPlayer().dropItem(itemName);
+
+        if (success) {
+            return "Polozil jsi " + itemName;
+        } else {
+            return "To nemas v batohu.";
+        }
     }
 
     @Override
