@@ -64,4 +64,12 @@ public class Room {
     public String getName() {
         return name;
     }
+
+    public List<NPC> getNPCs() {
+        return npcs;
+    }
+
+    public Inventory getInventory() {
+        return items;
+    }
 }

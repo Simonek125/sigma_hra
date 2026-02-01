@@ -54,4 +54,8 @@ public class Inventory {
     public int size() {
         return items.size();
     }
+
+    public List<Item> getItems() {
+        return items;
+    }
 }
