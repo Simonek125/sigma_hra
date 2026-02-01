@@ -7,6 +7,8 @@ public class LocationData {
     private String name;
     private String description;
     private List<String> neighbors;
+    private List<ItemData> items;
+    private List<NPCData> characters;
 
     public String getId() {
         return id;
@@ -22,5 +24,13 @@ public class LocationData {
 
     public List<String> getNeighbors() {
         return neighbors;
+    }
+
+    public List<ItemData> getItems() {
+        return items;
+    }
+
+    public List<NPCData> getCharacters() {
+        return characters;
     }
 }

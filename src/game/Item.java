@@ -1,24 +1,45 @@
 package game;
 
 public class Item {
+    private String id;
     private String name;
     private String description;
+    private String type;
     private boolean isEdible;
     private boolean isHeavy;
 
-    public Item(String name, String description, boolean isEdible, boolean isHeavy) {
+    public Item(String id, String name, String description, String type) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.type = type;
 
+        // Derive properties from type
+        this.isEdible = "jidlo".equals(type);
+        this.isHeavy = "material".equals(type); // Or based on other logic
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
-        return null;
+        return name;
     }
 
     public String getDescription() {
-        return null;
+        return description;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public boolean isEdible() {
-        return false;
+        return isEdible;
+    }
+
+    public boolean isHeavy() {
+        return isHeavy;
     }
 }

@@ -16,6 +16,24 @@ public class World {
         // 1. Create all rooms
         for (LocationData loc : data.getLocations()) {
             Room room = new Room(loc.getName(), loc.getDescription());
+
+            // Load items
+            if (loc.getItems() != null) {
+                for (ItemData itemData : loc.getItems()) {
+                    Item item = new Item(itemData.getId(), itemData.getName(), itemData.getDescription(),
+                            itemData.getType());
+                    room.addItem(item);
+                }
+            }
+
+            // Load characters
+            if (loc.getCharacters() != null) {
+                for (NPCData npcData : loc.getCharacters()) {
+                    NPC npc = new NPC(npcData.getId(), npcData.getName(), npcData.getDescription(), npcData.getType());
+                    room.addNPC(npc);
+                }
+            }
+
             rooms.put(loc.getId(), room);
         }
 

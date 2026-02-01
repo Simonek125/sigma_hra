@@ -7,30 +7,51 @@ public class Inventory {
     private int capacity;
 
     public Inventory(int capacity) {
-
+        this.capacity = capacity;
+        this.items = new java.util.ArrayList<>();
     }
 
     public boolean add(Item item) {
+        if (items.size() < capacity) {
+            items.add(item);
+            return true;
+        }
         return false;
     }
 
     public Item remove(String name) {
-        return null;
+        Item item = get(name);
+        if (item != null) {
+            items.remove(item);
+        }
+        return item;
     }
 
     public Item get(String name) {
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
         return null;
     }
 
     public boolean hasItem(String name) {
-        return false;
+        return get(name) != null;
     }
 
     public String listItems() {
-        return null;
+        if (items.isEmpty()) {
+            return "nic";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Item item : items) {
+            sb.append(item.getName()).append(" ");
+        }
+        return sb.toString().trim();
     }
 
     public int size() {
-        return 0;
+        return items.size();
     }
 }

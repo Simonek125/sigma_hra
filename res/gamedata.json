@@ -6,7 +6,9 @@
             "description": "Domov Barnabáše. Zde hra začíná i končí.",
             "neighbors": [
                 "rozcesti"
-            ]
+            ],
+            "items": [],
+            "characters": []
         },
         {
             "id": "rozcesti",
@@ -17,7 +19,9 @@
                 "doubravka",
                 "housti",
                 "bystrina"
-            ]
+            ],
+            "items": [],
+            "characters": []
         },
         {
             "id": "doubravka",
@@ -26,6 +30,22 @@
             "neighbors": [
                 "rozcesti",
                 "louka"
+            ],
+            "items": [
+                {
+                    "id": "orisek",
+                    "name": "Oříšek",
+                    "description": "Platidlo pro veverku.",
+                    "type": "platidlo"
+                }
+            ],
+            "characters": [
+                {
+                    "id": "veverka",
+                    "name": "Veverka Čiperka",
+                    "description": "Obchodnice. Smění mech za jídlo (oříšky).",
+                    "type": "neutral"
+                }
             ]
         },
         {
@@ -34,6 +54,22 @@
             "description": "Zdroj medu, nebezpečí pobodání.",
             "neighbors": [
                 "doubravka"
+            ],
+            "items": [
+                {
+                    "id": "med",
+                    "name": "Hrnec medu",
+                    "description": "Jídlo. Zvyšuje sytost.",
+                    "type": "jidlo"
+                }
+            ],
+            "characters": [
+                {
+                    "id": "vceli_roj",
+                    "name": "Včelí roj",
+                    "description": "Brání med. Hrozí pobodání.",
+                    "type": "nepritel"
+                }
             ]
         },
         {
@@ -44,7 +80,16 @@
                 "rozcesti",
                 "srub",
                 "bystrina"
-            ]
+            ],
+            "items": [
+                {
+                    "id": "kamen",
+                    "name": "Velký kámen",
+                    "description": "Těžký předmět. Slouží k ucpání vchodu do jeskyně.",
+                    "type": "material"
+                }
+            ],
+            "characters": []
         },
         {
             "id": "srub",
@@ -52,6 +97,22 @@
             "description": "Lidská stavba s užitečnými předměty.",
             "neighbors": [
                 "housti"
+            ],
+            "items": [
+                {
+                    "id": "deka",
+                    "name": "Stará deka",
+                    "description": "Materiál na spaní.",
+                    "type": "spani"
+                }
+            ],
+            "characters": [
+                {
+                    "id": "jezevec",
+                    "name": "Jezevec Mrzout",
+                    "description": "Blokuje vstup. Je nevrlý kvůli bolesti zubu.",
+                    "type": "prekazka"
+                }
             ]
         },
         {
@@ -62,7 +123,16 @@
                 "rozcesti",
                 "housti",
                 "vyhlidka"
-            ]
+            ],
+            "items": [
+                {
+                    "id": "losos",
+                    "name": "Losos",
+                    "description": "Jídlo. Kluzký, lze ulovit.",
+                    "type": "jidlo"
+                }
+            ],
+            "characters": []
         },
         {
             "id": "vyhlidka",
@@ -70,7 +140,16 @@
             "description": "Roste zde léčivá bylina.",
             "neighbors": [
                 "bystrina"
-            ]
+            ],
+            "items": [
+                {
+                    "id": "bylina",
+                    "name": "Léčivá bylina",
+                    "description": "Quest item pro jezevce.",
+                    "type": "quest"
+                }
+            ],
+            "characters": []
         }
     ]
 }

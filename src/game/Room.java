@@ -47,7 +47,18 @@ public class Room {
     }
 
     public String getLongDescription() {
-        return "Jsi v: " + name + "\n" + description + "\nVychody: " + exits.keySet();
+        String npcString = "";
+        for (NPC npc : npcs) {
+            npcString += npc.getName() + " ";
+        }
+        if (npcs.isEmpty())
+            npcString = "nikdo";
+
+        return "Jsi v: " + name + "\n" +
+                description + "\n" +
+                "Veci: " + items.listItems() + "\n" +
+                "Postavy: " + npcString.trim() + "\n" +
+                "Vychody: " + exits.keySet();
     }
 
     public String getName() {
