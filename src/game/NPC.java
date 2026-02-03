@@ -5,7 +5,7 @@ public class NPC {
     private String name;
     private String description;
     private String type;
-    private String dialog; // Can be set later or derived
+    private String dialog;
     private Item wantedItem;
     private Item rewardItem;
 
@@ -23,7 +23,7 @@ public class NPC {
     }
 
     public void trade(Player player) {
-        // Simple logic for now
+
         System.out.println(name + " nema nic na vymenu.");
     }
 

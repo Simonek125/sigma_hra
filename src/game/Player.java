@@ -10,7 +10,7 @@ public class Player {
     public Player(String name, Room startRoom) {
         this.name = name;
         this.currentRoom = startRoom;
-        this.backpack = new Inventory(10); // Default size
+        this.backpack = new Inventory(10);
     }
 
     public void move(Room nextRoom) {
@@ -52,7 +52,7 @@ public class Player {
     }
 
     public Inventory getInventory() {
-        return null;
+        return backpack;
     }
 
     public String getCurrentStatus() {

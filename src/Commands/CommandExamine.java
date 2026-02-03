@@ -12,32 +12,26 @@ public class CommandExamine implements Command {
         String targetName = String.join(" ", args);
         game.Room room = game.getPlayer().getCurrentRoom();
 
-        // Check Inventory (Backpack)
         if (game.getPlayer().getInventory().hasItem(targetName)) {
             return game.getPlayer().getInventory().get(targetName).getDescription();
         }
 
-        // Check Room Items
         if (room.getInventory().hasItem(targetName)) {
             return room.getInventory().get(targetName).getDescription();
         }
 
-        // Check Room NPCs
         for (game.NPC npc : room.getNPCs()) {
             if (npc.getName().toLowerCase().contains(targetName.toLowerCase())) {
                 return npc.getDescription();
             }
         }
 
-        // Also check if user examines "room" or "mistnost" ?
-        // Or if item in room inventory with fuzzy match?
         for (game.Item item : room.getInventory().getItems()) {
             if (item.getName().toLowerCase().contains(targetName.toLowerCase())) {
                 return item.getDescription();
             }
         }
 
-        // Check backpack fuzzy
         for (game.Item item : game.getPlayer().getInventory().getItems()) {
             if (item.getName().toLowerCase().contains(targetName.toLowerCase())) {
                 return item.getDescription();
