@@ -10,6 +10,14 @@ public class CommandTake implements Command {
         }
 
         String itemName = args[0];
+
+        if (itemName.equals("deka")) {
+            game.Room room = game.getPlayer().getCurrentRoom();
+            if (room.getNPCById("jezevec") != null) {
+                return "Jezevec vrčí a nenechá tě vzít deku. Musíš se ho nějak zbavit.";
+            }
+        }
+
         boolean success = game.getPlayer().takeItem(itemName);
 
         if (success) {

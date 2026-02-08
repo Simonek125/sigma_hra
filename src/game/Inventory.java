@@ -32,6 +32,16 @@ public class Inventory {
             if (item.getName().equalsIgnoreCase(name)) {
                 return item;
             }
+            if (item.getId().equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
+        for (Item item : items) {
+            String lowercaseName = item.getName().toLowerCase();
+            String lowercaseQuery = name.toLowerCase();
+            if (lowercaseName.contains(lowercaseQuery)) {
+                return item;
+            }
         }
         return null;
     }

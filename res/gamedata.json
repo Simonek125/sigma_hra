@@ -43,8 +43,9 @@
                 {
                     "id": "veverka",
                     "name": "Veverka Čiperka",
-                    "description": "Obchodnice. Smění mech za jídlo (oříšky).",
-                    "type": "neutral"
+                    "description": "Obchodnice. Smění mech za oříšky.",
+                    "type": "neutral",
+                    "dialog": "Mas pro me nejaky orisek? Vymenim ho za mekoucký mech!"
                 }
             ]
         },
@@ -68,7 +69,8 @@
                     "id": "vceli_roj",
                     "name": "Včelí roj",
                     "description": "Brání med. Hrozí pobodání.",
-                    "type": "nepritel"
+                    "type": "nepritel",
+                    "dialog": "Jdi pryc! Ten med je nas!"
                 }
             ]
         },
@@ -111,7 +113,8 @@
                     "id": "jezevec",
                     "name": "Jezevec Mrzout",
                     "description": "Blokuje vstup. Je nevrlý kvůli bolesti zubu.",
-                    "type": "prekazka"
+                    "type": "prekazka",
+                    "dialog": "Au! Muj zub! Nechod sem, nebo te kousnu! Potrebuju neco na bolest..."
                 }
             ]
         },

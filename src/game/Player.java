@@ -43,8 +43,21 @@ public class Player {
         return false;
     }
 
-    public void eat(Item item) {
-
+    public String eat(Item item) {
+        if (item == null) {
+            return "Co mam jist?";
+        }
+        if (!item.isEdible()) {
+            return "To se neda jist!";
+        }
+        if (backpack.hasItem(item.getName())) { // Or take from room? Usually from inventory.
+            backpack.remove(item.getName());
+            saturation += 50; // Increase saturation
+            if (saturation > 100)
+                saturation = 100;
+            return "Snedl jsi " + item.getName() + ". Tvoje sytost je " + saturation + "/100.";
+        }
+        return "Nemas to v batohu.";
     }
 
     public Room getCurrentRoom() {
@@ -55,7 +68,23 @@ public class Player {
         return backpack;
     }
 
+    public int getSaturation() {
+        return saturation;
+    }
+
+    public void setSaturation(int saturation) {
+        this.saturation = saturation;
+    }
+
+    public boolean isHibernating() {
+        return isHibernating;
+    }
+
+    public void setHibernating(boolean hibernating) {
+        isHibernating = hibernating;
+    }
+
     public String getCurrentStatus() {
-        return null;
+        return "Sytost: " + saturation + "/100. " + (isHibernating ? "Spis." : "Jsi vzhuru.");
     }
 }

@@ -9,22 +9,28 @@ public class NPC {
     private Item wantedItem;
     private Item rewardItem;
 
-    public NPC(String id, String name, String description, String type) {
+    public NPC(String id, String name, String description, String type, String dialog) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.type = type;
+        this.dialog = dialog;
     }
 
     public String talk() {
-        if (dialog != null)
+        if (dialog != null && !dialog.isEmpty()) {
             return dialog;
+        }
         return "Hmmm...";
     }
 
     public void trade(Player player) {
 
         System.out.println(name + " nema nic na vymenu.");
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {

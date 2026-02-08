@@ -15,7 +15,9 @@ public class Parser {
         registerCommand(new Commands.CommandDrop());
         registerCommand(new Commands.CommandTalk());
         registerCommand(new Commands.CommandExamine());
-
+        registerCommand(new Commands.CommandEat());
+        registerCommand(new Commands.CommandUse());
+        registerCommand(new Commands.CommandSleep());
     }
 
     private void registerCommand(Command cmd) {

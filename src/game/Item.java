@@ -14,9 +14,8 @@ public class Item {
         this.description = description;
         this.type = type;
 
-        // Derive properties from type
         this.isEdible = "jidlo".equals(type);
-        this.isHeavy = "material".equals(type); // Or based on other logic
+        this.isHeavy = false;
     }
 
     public String getId() {

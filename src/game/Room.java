@@ -40,7 +40,19 @@ public class Room {
 
     public NPC getNPC(String name) {
         for (NPC npc : npcs) {
-            if (npc.getName().equals(name))
+            if (npc.getName().toLowerCase().contains(name.toLowerCase()))
+                return npc;
+        }
+        return null;
+    }
+
+    public void removeNPC(NPC npc) {
+        npcs.remove(npc);
+    }
+
+    public NPC getNPCById(String id) {
+        for (NPC npc : npcs) {
+            if (npc.getId().equals(id))
                 return npc;
         }
         return null;

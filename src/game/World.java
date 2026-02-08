@@ -1,6 +1,5 @@
 package game;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class World {
@@ -29,7 +28,8 @@ public class World {
             // Load characters
             if (loc.getCharacters() != null) {
                 for (NPCData npcData : loc.getCharacters()) {
-                    NPC npc = new NPC(npcData.getId(), npcData.getName(), npcData.getDescription(), npcData.getType());
+                    NPC npc = new NPC(npcData.getId(), npcData.getName(), npcData.getDescription(), npcData.getType(),
+                            npcData.getDialog());
                     room.addNPC(npc);
                 }
             }
@@ -37,14 +37,13 @@ public class World {
             rooms.put(loc.getId(), room);
         }
 
-        // 2. Link neighbors
         for (LocationData loc : data.getLocations()) {
             Room currentRoom = rooms.get(loc.getId());
             if (loc.getNeighbors() != null) {
                 for (String neighborId : loc.getNeighbors()) {
                     Room neighborRoom = rooms.get(neighborId);
                     if (neighborRoom != null) {
-                        // Use the ID as the direction command (e.g., "jeskyne", "rozcesti")
+
                         currentRoom.addExit(neighborId, neighborRoom);
                     }
                 }

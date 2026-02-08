@@ -60,7 +60,58 @@ public class Game {
         return player;
     }
 
+    private boolean isEntranceBlocked;
+    private boolean hasBed;
+    private boolean hasBlanket;
+    private boolean hasMoss;
+
+    public void setHasBlanket(boolean hasBlanket) {
+        this.hasBlanket = hasBlanket;
+        checkBed();
+    }
+
+    public void setHasMoss(boolean hasMoss) {
+        this.hasMoss = hasMoss;
+        checkBed();
+    }
+
+    private void checkBed() {
+        if (hasBlanket && hasMoss) {
+            hasBed = true;
+            System.out.println("Tvoje postýlka je hotová a měkoučká!");
+        }
+    }
+
     public World getWorld() {
-        return null;
+        return world;
+    }
+
+    public void setEntranceBlocked(boolean blocked) {
+        this.isEntranceBlocked = blocked;
+    }
+
+    public boolean isEntranceBlocked() {
+        return isEntranceBlocked;
+    }
+
+    public void setHasBed(boolean hasBed) {
+        this.hasBed = hasBed;
+    }
+
+    public boolean hasBed() {
+        return hasBed;
+    }
+
+    public void checkWin() {
+        if (player.getCurrentRoom().getName().equals("Jeskyně") &&
+                isEntranceBlocked &&
+                hasBed &&
+                player.getSaturation() >= 100) {
+            System.out.println("Gratuluji! Uctil jsi všechny podmínky pro zimní spánek.");
+            System.out.println(
+                    "Barnabáš se zavrta do mekouckého mechu, vchod je bezpečně ucpaný a bříško má plné.");
+            System.out.println("Dobrou noc, Barnabáši!");
+            stop();
+        }
     }
 }
