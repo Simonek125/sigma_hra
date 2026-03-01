@@ -3,6 +3,9 @@ package Commands;
 import game.Game;
 
 public class CommandTalk implements Command {
+    /**
+     * Pokusí se najít osobu/zvíře (NPC) v místnosti a promluvit na ni.
+     */
     @Override
     public String execute(String[] args, Game game) {
         if (args.length == 0) {
@@ -11,9 +14,11 @@ public class CommandTalk implements Command {
 
         String targetName = String.join(" ", args);
 
+        // Zkouší nejprve přesnou či jednoduchou shodu v místnosti
         game.NPC npc = game.getPlayer().getCurrentRoom().getNPC(targetName);
         if (npc == null) {
-
+            // Pokud ji nenajde, zkusí projít jména s částečnou shodou (ignoruje velikost
+            // písmen)
             for (game.NPC n : game.getPlayer().getCurrentRoom().getNPCs()) {
                 if (n.getName().toLowerCase().contains(targetName.toLowerCase())) {
                     npc = n;

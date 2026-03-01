@@ -3,6 +3,11 @@ package Commands;
 import game.Game;
 
 public class CommandUse implements Command {
+    /**
+     * Aplikuje předmět z batohu v aktuální místnosti.
+     * Obsahuje specifická pravidla (hardcoded logiku) jako léčení jezevce bylinou
+     * nebo podání oříšku veverce atp.
+     */
     @Override
     public String execute(String[] args, Game game) {
         if (args.length == 0) {
@@ -17,13 +22,14 @@ public class CommandUse implements Command {
         }
 
         game.Room currentRoom = game.getPlayer().getCurrentRoom();
-        // Logic for Bylina
+
+        // Logika použití byliny: Vyléčí jezevce a tím jej odstraní jako překážku
         if (item.getId().equals("bylina")) {
 
             if (currentRoom.getName().equals("Opuštěný srub")) {
                 game.NPC jezevec = currentRoom.getNPCById("jezevec");
                 if (jezevec != null) {
-                    currentRoom.removeNPC(jezevec);
+                    currentRoom.removeNPC(jezevec); // Odebrání jezevce z místnosti
                     game.getPlayer().getInventory().remove("bylina");
                     return "Dal jsi bylinu jezevcovi. Ten si ji přiložil na bolavý zub, spokojeně zamručel a odbelhal se pryč.";
                 }
@@ -31,12 +37,13 @@ public class CommandUse implements Command {
             return "Tady bylinu nemůžeš smysluplně použít.";
         }
 
-        // Logic for Orisek
+        // Logika použití oříšku: Slouží na pohoštění veverky výměnou za mech
         if (item.getId().equals("orisek")) {
             if (currentRoom.getName().equals("Doubravka")) {
                 game.NPC veverka = currentRoom.getNPCById("veverka");
                 if (veverka != null) {
                     game.getPlayer().getInventory().remove("orisek");
+                    // Darování oříšku přidá hráči Mech do inventáře jako odměnu
                     game.Item mech = new game.Item("mech", "Měkký mech", "Ideální na vystlání pelíšku.", "material");
                     game.getPlayer().getInventory().add(mech);
                     return "Veverka ti vytrhla oříšek z ruky a hodila po tobě kus mechu. 'Díky!' zavolala.";
@@ -45,11 +52,11 @@ public class CommandUse implements Command {
             return "Tady oříšek nikdo nechce.";
         }
 
-        // Logic for Kamen
+        // Logika použití kamene: Slouží pro bezpečné ucpání jeskyně před spaním
         if (item.getId().equals("kamen")) {
             if (currentRoom.getName().equals("Jeskyně")) {
                 game.getPlayer().getInventory().remove("kamen");
-                game.setEntranceBlocked(true);
+                game.setEntranceBlocked(true); // Zapíše do hry, že je úkryt zabezpečen
 
                 return "S námahou jsi převalil kámen a ucpal jím vchod do jeskyně. Teď je tu bezpečno.";
             }

@@ -3,15 +3,23 @@ package Commands;
 import game.Game;
 
 public class CommandSleep implements Command {
+    /**
+     * Zkontroluje, zda hráč může jít spát a vyhrát hru.
+     */
     @Override
     public String execute(String[] args, Game game) {
+        // Hráč musí být v úvodní jeskyni
         if (!game.getPlayer().getCurrentRoom().getName().equals("Jeskyně")) {
             return "Tady nemůžeš spát. Musíš být doma v jeskyni.";
         }
 
+        // Zkusí spustit ověření vítězství (checkWin), které ukončí hru úspěchem,
+        // pokud jsou všechny podmínky splněny
         game.checkWin();
         if (game.getWorld() != null) {
         }
+
+        // Pokud hra neskončila vítězstvím, zjišťujeme, co přesně chybí
         StringBuilder missing = new StringBuilder("Nemůžeš usnout, něco ti chybí:\n");
         boolean ready = true;
 

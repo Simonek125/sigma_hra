@@ -3,6 +3,9 @@ package Commands;
 import game.Game;
 
 public class CommandDrop implements Command {
+    /**
+     * Zahodí předmět z batohu zpět do aktuální místnosti.
+     */
     @Override
     public String execute(String[] args, Game game) {
         if (args.length == 0) {

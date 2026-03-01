@@ -3,6 +3,9 @@ package Commands;
 import game.Game;
 
 public class CommandEat implements Command {
+    /**
+     * Pokusí se sníst zadaný předmět.
+     */
     @Override
     public String execute(String[] args, Game game) {
         if (args.length == 0) {
@@ -16,6 +19,7 @@ public class CommandEat implements Command {
             return "To nemas v batohu.";
         }
 
+        // Delegování logiky jedení na samotného hráče
         return game.getPlayer().eat(item);
     }
 
